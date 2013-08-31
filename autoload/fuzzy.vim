@@ -88,7 +88,7 @@ function! s:GetName(item, type)
   endif
 endfunction
 
-function! Choose(pattern, type)
+function! s:Choose(pattern, type)
   let itemList = s:ListValidMatches(a:pattern, a:type)
   if len(itemList) == 1
     return itemList[0]
