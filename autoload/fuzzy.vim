@@ -110,28 +110,28 @@ endfunction
 
 function! fuzzy#OpenFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  if path
+  if path != '0'
     execute "open " . path
   endif
 endfunction
 
 function! fuzzy#TabOpenFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  if path
+  if path != '0'
     execute "tab open " . path
   endif
 endfunction
 
 function! fuzzy#SplitFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  if path
+  if path != '0'
     execute "split " . path
   endif
 endfunction
 
 function! fuzzy#VSplitFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  if path
+  if path != '0'
     execute "vsplit " . path
   endif
 endfunction
