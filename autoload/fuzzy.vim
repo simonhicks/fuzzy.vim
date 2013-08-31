@@ -9,9 +9,12 @@ if !exists('g:fuzzy_file_exclusions')
         \]
 endif
 
+if !exists('g:fuzzy_exclude_current')
+  let g:fuzzy_exclude_current = 0
+endif
 
 function! s:FileExcluded(file)
-  let exclude = isdirectory(a:file)
+  let exclude = isdirectory(a:file) || (g:fuzzy_exclude_current && fnamemodify(a:file, ':p') == expand('%:p'))
   for exclusion in g:fuzzy_file_exclusions
     if exclude || (match(a:file, exclusion) != -1)
       let exclude = 1
@@ -21,7 +24,7 @@ function! s:FileExcluded(file)
 endfunction
 
 function! s:BufferExcluded(bufferNumber)
-  return !buflisted(a:bufferNumber)
+  return !buflisted(a:bufferNumber) || (g:fuzzy_exclude_current && buffer_number('%') == a:bufferNumber)
 endfunction
 
 function! s:IsExcluded(ident, type)

@@ -50,6 +50,9 @@ mode mappings. Defaults to '\<space\>'
 This is a list of regular expressions which you always want to exclude from your
 list of file matches. Defaults to \['.\*\\.class$'\] (to exclude jvm class files)
 
-### g:fuzzy\_provide\_mappings
-Set this to 0 to tell fuzzy.vim not to add any mappings. Defaults to 1
+### g:fuzzy\_exclude\_current
+Set this to 1 to tell fuzzy to exclude the current file/buffer from the search.
+Defaults to 0
 
+### g:fuzzy\_provide\_mappings
+Set this to 0 to tell fuzzy not to add any mappings. Defaults to 1
