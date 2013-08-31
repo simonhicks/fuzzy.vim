@@ -11,9 +11,9 @@ endif
 
 
 function! s:FileExcluded(file)
-  let exclude = 0
+  let exclude = isdirectory(a:file)
   for exclusion in g:fuzzy_file_exclusions
-    if (match(a:file, exclusion) != -1)
+    if exclude || (match(a:file, exclusion) != -1)
       let exclude = 1
     endif
   endfor
@@ -112,7 +112,7 @@ endfunction
 
 function! fuzzy#TabOpenFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  execute "tabopen " . path
+  execute "tab open " . path
 endfunction
 
 function! fuzzy#SplitFile(pattern)
