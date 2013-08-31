@@ -110,40 +110,56 @@ endfunction
 
 function! fuzzy#OpenFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  execute "open " . path
+  if path
+    execute "open " . path
+  endif
 endfunction
 
 function! fuzzy#TabOpenFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  execute "tab open " . path
+  if path
+    execute "tab open " . path
+  endif
 endfunction
 
 function! fuzzy#SplitFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  execute "split " . path
+  if path
+    execute "split " . path
+  endif
 endfunction
 
 function! fuzzy#VSplitFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  execute "vsplit " . path
+  if path
+    execute "vsplit " . path
+  endif
 endfunction
 
 function! fuzzy#OpenBuffer(pattern)
-  let num = s:Choose(a:pattern, 'buffer')
-  execute "buffer " . num
+  let bnum = s:Choose(a:pattern, 'buffer')
+  if bnum
+    execute "buffer " . bnum
+  endif
 endfunction
 
 function! fuzzy#TabOpenBuffer(pattern)
-  let num = s:Choose(a:pattern, 'buffer')
-  execute "tab buffer " . num
+  let bnum = s:Choose(a:pattern, 'buffer')
+  if bnum
+    execute "tab buffer " . bnum
+  endif
 endfunction
 
 function! fuzzy#SplitBuffer(pattern)
-  let num = s:Choose(a:pattern, 'buffer')
-  execute "sbuffer " . num
+  let bnum = s:Choose(a:pattern, 'buffer')
+  if bnum
+    execute "sbuffer " . bnum
+  endif
 endfunction
 
 function! fuzzy#VSplitBuffer(pattern)
-  let num = s:Choose(a:pattern, 'buffer')
-  execute "vert sbuffer " . num
+  let bnum = s:Choose(a:pattern, 'buffer')
+  if bnum
+    execute "vert sbuffer " . bnum
+  endif
 endfunction
