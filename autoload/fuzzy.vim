@@ -118,7 +118,7 @@ endfunction
 function! fuzzy#TabOpenFile(pattern)
   let path = s:Choose(a:pattern, 'file')
   if path != '0'
-    execute "tab open " . path
+    execute "tabnew " . path
   endif
 endfunction
 
@@ -146,7 +146,7 @@ endfunction
 function! fuzzy#TabOpenBuffer(pattern)
   let bnum = s:Choose(a:pattern, 'buffer')
   if bnum
-    execute "tab buffer " . bnum
+    execute "tab sbuffer " . bnum
   endif
 endfunction
 
