@@ -102,7 +102,9 @@ function! s:Choose(pattern, type)
       let i += 1
     endfor
     let chosen = input("Please enter number: ")
-    return itemList[chosen]
+    if chosen
+      return itemList[chosen]
+    endif
   else
     echom "Couldn't find " . a:type . " matching '" . a:pattern . "'"
   endif
@@ -163,3 +165,4 @@ function! fuzzy#VSplitBuffer(pattern)
     execute "vert sbuffer " . bnum
   endif
 endfunction
+
