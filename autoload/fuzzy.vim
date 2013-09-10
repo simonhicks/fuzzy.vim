@@ -102,66 +102,67 @@ function! s:Choose(pattern, type)
       let i += 1
     endfor
     let chosen = input("Please enter number: ")
-    if chosen
+    if chosen != ''
       return itemList[chosen]
     endif
   else
     echom "Couldn't find " . a:type . " matching '" . a:pattern . "'"
+    return -1
   endif
 endfunction
 
 function! fuzzy#OpenFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  if path != '0'
+  if path != '0' && path != -1
     execute "open " . path
   endif
 endfunction
 
 function! fuzzy#TabOpenFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  if path != '0'
+  if path != '0' && path != -1
     execute "tabnew " . path
   endif
 endfunction
 
 function! fuzzy#SplitFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  if path != '0'
+  if path != '0' && path != -1
     execute "split " . path
   endif
 endfunction
 
 function! fuzzy#VSplitFile(pattern)
   let path = s:Choose(a:pattern, 'file')
-  if path != '0'
+  if path != '0' && path != -1
     execute "vsplit " . path
   endif
 endfunction
 
 function! fuzzy#OpenBuffer(pattern)
   let bnum = s:Choose(a:pattern, 'buffer')
-  if bnum
+  if bnum && bnum != -1
     execute "buffer " . bnum
   endif
 endfunction
 
 function! fuzzy#TabOpenBuffer(pattern)
   let bnum = s:Choose(a:pattern, 'buffer')
-  if bnum
+  if bnum && bnum != -1
     execute "tab sbuffer " . bnum
   endif
 endfunction
 
 function! fuzzy#SplitBuffer(pattern)
   let bnum = s:Choose(a:pattern, 'buffer')
-  if bnum
+  if bnum && bnum != -1
     execute "sbuffer " . bnum
   endif
 endfunction
 
 function! fuzzy#VSplitBuffer(pattern)
   let bnum = s:Choose(a:pattern, 'buffer')
-  if bnum
+  if bnum && bnum != -1
     execute "vert sbuffer " . bnum
   endif
 endfunction
