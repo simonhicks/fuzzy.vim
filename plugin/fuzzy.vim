@@ -7,15 +7,15 @@ if !exists('g:fuzzy_provide_mappings')
   let g:fuzzy_provide_mappings = 1
 endif
 
-command! -nargs=1 FuzzyOpenFile :call fuzzy#OpenFile("<args>")
-command! -nargs=1 FuzzySplitFile :call fuzzy#SplitFile("<args>")
-command! -nargs=1 FuzzyVSplitFile :call fuzzy#VSplitFile("<args>")
-command! -nargs=1 FuzzyTabOpenFile :call fuzzy#TabOpenFile("<args>")
+command! -complete=file -nargs=1 FuzzyOpenFile :call fuzzy#OpenFile("<args>")
+command! -complete=file -nargs=1 FuzzySplitFile :call fuzzy#SplitFile("<args>")
+command! -complete=file -nargs=1 FuzzyVSplitFile :call fuzzy#VSplitFile("<args>")
+command! -complete=file -nargs=1 FuzzyTabOpenFile :call fuzzy#TabOpenFile("<args>")
 
-command! -nargs=1 FuzzyOpenBuffer :call fuzzy#OpenBuffer("<args>")
-command! -nargs=1 FuzzySplitBuffer :call fuzzy#SplitBuffer("<args>")
-command! -nargs=1 FuzzyVSplitBuffer :call fuzzy#VSplitBuffer("<args>")
-command! -nargs=1 FuzzyTabOpenBuffer :call fuzzy#TabOpenBuffer("<args>")
+command! -complete=buffer -nargs=1 FuzzyOpenBuffer :call fuzzy#OpenBuffer("<args>")
+command! -complete=buffer -nargs=1 FuzzySplitBuffer :call fuzzy#SplitBuffer("<args>")
+command! -complete=buffer -nargs=1 FuzzyVSplitBuffer :call fuzzy#VSplitBuffer("<args>")
+command! -complete=buffer -nargs=1 FuzzyTabOpenBuffer :call fuzzy#TabOpenBuffer("<args>")
 
 if g:fuzzy_provide_mappings
   if !exists('g:fuzzy_leader')
