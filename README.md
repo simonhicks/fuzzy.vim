@@ -21,14 +21,14 @@ obvious what they do.
 * :FuzzySplitFile \<pattern\>
 * :FuzzyVSplitFile \<pattern\>
 
-Similarly, it provides the matching commands for opening buffers.
+Similarly, it provides matching commands for opening buffers.
 
 * :FuzzyOpenBuffer \<pattern\>
 * :FuzzyTabOpenBuffer \<pattern\>
 * :FuzzySplitBuffer \<pattern\>
 * :FuzzyVSplitBuffer \<pattern\>
 
-By default, Fuzzy.vim will also add these mappings to normal mode.
+By default, Fuzzy.vim will add these mappings to normal mode.
 
 * map \<FuzzyLeader\>fo :FuzzyOpenFile\<space\>
 * map \<FuzzyLeader\>ft :FuzzyTabOpenFile\<space\>
@@ -39,6 +39,10 @@ By default, Fuzzy.vim will also add these mappings to normal mode.
 * map \<FuzzyLeader\>bs :FuzzySplitBuffer\<space\>
 * map \<FuzzyLeader\>bv :FuzzyVSplitBuffer\<space\>
 
+Since it's particularly common to want to look for a file that matches a word
+in the file, there is another shortcut to look for files matching the word
+currently under the cursor. By default this is bound to \<C-f\>, but it can be
+configured (see below)
 
 ## Configuration
 
@@ -49,6 +53,10 @@ mode mappings. Defaults to '\<space\>'
 ### g:fuzzy\_file\_exclusions
 This is a list of regular expressions which you always want to exclude from your
 list of file matches. Defaults to \['.\*\\.class$'\] (to exclude jvm class files)
+
+### g:fuzzy\_find\_cword
+This defines the binding to search for the word currently under the cursor.
+Defaults to \<C-f\>
 
 ### g:fuzzy\_exclude\_current
 Set this to 1 to tell fuzzy to exclude the current file/buffer from the search.

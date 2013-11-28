@@ -29,4 +29,8 @@ if g:fuzzy_provide_mappings
   execute 'nnoremap ' . g:fuzzy_leader . 'bt :FuzzyTabOpenBuffer<space>'
   execute 'nnoremap ' . g:fuzzy_leader . 'bv :FuzzyVSplitBuffer<space>'
   execute 'nnoremap ' . g:fuzzy_leader . 'bs :FuzzySplitBuffer<space>'
+  if !exists('g:fuzzy_find_cword')
+    let g:fuzzy_find_cword = '<C-f>'
+  endif
+  execute 'nnoremap ' . g:fuzzy_find_cword . ' :FuzzyOpenFile <cword><CR>'
 endif
