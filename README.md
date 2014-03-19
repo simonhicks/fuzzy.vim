@@ -16,51 +16,54 @@ doesn't do anything smart. It's supposed to be simple.
 Fuzzy.vim provides the following commands for opening files. Hopefully it's
 obvious what they do.
 
-* :FuzzyOpenFile \<pattern\>
-* :FuzzyTabOpenFile \<pattern\>
-* :FuzzySplitFile \<pattern\>
-* :FuzzyVSplitFile \<pattern\>
+* `:FuzzyOpenFile <pattern>`
+* `:FuzzyTabOpenFile <pattern>`
+* `:FuzzySplitFile <pattern>`
+* `:FuzzyVSplitFile <pattern>`
 
 Similarly, it provides matching commands for opening buffers.
 
-* :FuzzyOpenBuffer \<pattern\>
-* :FuzzyTabOpenBuffer \<pattern\>
-* :FuzzySplitBuffer \<pattern\>
-* :FuzzyVSplitBuffer \<pattern\>
+* `:FuzzyOpenBuffer <pattern>`
+* `:FuzzyTabOpenBuffer <pattern>`
+* `:FuzzySplitBuffer <pattern>`
+* `:FuzzyVSplitBuffer <pattern>`
 
 By default, Fuzzy.vim will add these mappings to normal mode.
 
-* map \<FuzzyLeader\>fo :FuzzyOpenFile\<space\>
-* map \<FuzzyLeader\>ft :FuzzyTabOpenFile\<space\>
-* map \<FuzzyLeader\>fs :FuzzySplitFile\<space\>
-* map \<FuzzyLeader\>fv :FuzzyVSplitFile\<space\>
-* map \<FuzzyLeader\>bo :FuzzyOpenBuffer\<space\>
-* map \<FuzzyLeader\>bt :FuzzyTabOpenBuffer\<space\>
-* map \<FuzzyLeader\>bs :FuzzySplitBuffer\<space\>
-* map \<FuzzyLeader\>bv :FuzzyVSplitBuffer\<space\>
+* `map <FuzzyLeader>fo :FuzzyOpenFile<space>`
+* `map <FuzzyLeader>ft :FuzzyTabOpenFile<space>`
+* `map <FuzzyLeader>fs :FuzzySplitFile<space>`
+* `map <FuzzyLeader>fv :FuzzyVSplitFile<space>`
+* `map <FuzzyLeader>bo :FuzzyOpenBuffer<space>`
+* `map <FuzzyLeader>bt :FuzzyTabOpenBuffer<space>`
+* `map <FuzzyLeader>bs :FuzzySplitBuffer<space>`
+* `map <FuzzyLeader>bv :FuzzyVSplitBuffer<space>`
 
-Since it's particularly common to want to look for a file that matches a word
-in the file, there is another shortcut to look for files matching the word
-currently under the cursor. By default this is bound to \<C-f\>, but it can be
-configured (see below)
+Since it's particularly common to want to look for a file/buffer that matches a word in the file, there is
+another shortcut to look for files/buffers matching the word currently under the cursor. By default these are
+bound to `<space><C-f>` and `<space><C-b>`, but can be configured (see below)
 
 ## Configuration
 
-### g:fuzzy\_leader
+### `g:fuzzy_leader`
 Set this to the string you would like fuzzy to use as the prefix to it's normal
-mode mappings. Defaults to '\<space\>'
+mode mappings. Defaults to `<space>`
 
-### g:fuzzy\_file\_exclusions
+### `g:fuzzy_file_exclusions`
 This is a list of regular expressions which you always want to exclude from your
-list of file matches. Defaults to \['.\*\\.class$'\] (to exclude jvm class files)
+list of file matches. Defaults to `['.*\.class$']` (to exclude jvm class files)
 
-### g:fuzzy\_find\_cword
-This defines the binding to search for the word currently under the cursor.
-Defaults to \<C-f\>
+### `g:fuzzy_find_file_cword`
+This defines the binding to search for a file matching the word currently under the cursor.  Defaults to
+`g:fuzzy_leader + <C-f>`
 
-### g:fuzzy\_exclude\_current
+### `g:fuzzy_find_buffer_cword`
+This defines the binding to search for a buffer matching the word currently under the cursor.  Defaults to
+`g:fuzzy_leader + <C-b>`
+
+### `g:fuzzy_exclude_current`
 Set this to 1 to tell fuzzy to exclude the current file/buffer from the search.
 Defaults to 0
 
-### g:fuzzy\_provide\_mappings
+### `g:fuzzy_provide_mappings`
 Set this to 0 to tell fuzzy not to add any mappings. Defaults to 1

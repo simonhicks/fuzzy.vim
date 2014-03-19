@@ -139,6 +139,10 @@ function! fuzzy#VSplitFile(pattern)
   endif
 endfunction
 
+function! fuzzy#OpenCwordFile()
+  call fuzzy#OpenFile(expand("<cword>"))
+endfunction
+
 function! fuzzy#OpenBuffer(pattern)
   let bnum = s:Choose(a:pattern, 'buffer')
   if bnum && bnum != -1
@@ -167,3 +171,6 @@ function! fuzzy#VSplitBuffer(pattern)
   endif
 endfunction
 
+function! fuzzy#OpenCwordBuffer()
+  call fuzzy#OpenBuffer(expand("<cword>"))
+endfunction
