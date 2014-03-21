@@ -3,6 +3,16 @@ if exists("g:autoloaded_fuzzy")
 endif
 let g:autoloaded_fuzzy = 1
 
+let uname = system("uname")
+if match(uname, "Linux") >= 0
+  let g:fuzzy_os_type = 'linux'
+elseif match(uname, "Darwin")
+  let g:fuzzy_os_type = 'darwin'
+else
+  throw "Fuzzy.vim only supports Darwin based and Linux based operating systems"
+  finish
+endif
+
 if !exists('g:fuzzy_file_exclusions')
   let g:fuzzy_file_exclusions = [
         \'.*\.class$'
@@ -35,8 +45,14 @@ function! s:IsExcluded(ident, type)
   endif
 endfunction
 
+if g:fuzzy_os_type ==# 'linux'
+  let s:extended_regex_flag_and_path = '. -regextype posix-extended'
+elseif g:fuzzy_os_type ==# 'darwin'
+  let s:extended_regex_flag_and_path = '-E .'
+endif
+
 function! s:FileList(pattern)
-  return split(system("find -E . -regex .*" . a:pattern . ".*"), "\n")
+  return split(system("find " . s:extended_regex_flag_and_path . " -regex .*" . a:pattern . ".*"), "\n")
 endfunction
 
 function! s:BufferList(pattern)
