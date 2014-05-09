@@ -8,7 +8,7 @@ and listed buffers for a buffer whose name matches that pattern.
 
 I wrote it entirely in a single afternoon when I got annoyed at hitting tab
 four hundred times to open a single java file, so don't be surprised if it
-doesn't do anything smart. It's supposed to be simple.
+doesn't do anything smart. It's *supposed* to be simple.
 
 
 ## USAGE
@@ -41,7 +41,7 @@ By default, Fuzzy.vim will add these mappings to normal mode.
 
 Since it's particularly common to want to look for a file/buffer that matches a word in the file, there is
 another shortcut to look for files/buffers matching the word currently under the cursor. By default these are
-bound to `<space><C-f>` and `<space><C-b>`, but can be configured (see below)
+bound to `<FuzzyLeader><C-f>` and `<FuzzyLeader><C-b>`, but can be configured (see below)
 
 ## Configuration
 
